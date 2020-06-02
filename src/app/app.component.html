@@ -1,0 +1,18 @@
+<mat-tab-group animationDuration="1000ms" mat-align-tabs="end">
+  <mat-tab label="Camera">
+    <div>
+      <div><video #video id="video" width="640" height="480" autoplay></video></div>
+      <div><button id="snap" (click)="capture()">Snap Photo</button></div>
+      <canvas #canvas id="canvas" width="640" height="480"></canvas>
+      <ul>
+        <li *ngFor="let c of captures">
+          <img src="{{ c }}" height="50" />
+        </li>
+      </ul>
+    </div>
+  </mat-tab>
+  <mat-tab label="Console">
+    <div id="console">
+    </div>
+  </mat-tab>
+</mat-tab-group>
