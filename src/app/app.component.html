@@ -1,5 +1,9 @@
 <mat-tab-group animationDuration="1000ms" mat-align-tabs="end">
-  <mat-tab label="Camera">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>camera</mat-icon>
+      Camera
+    </ng-template>
     <div>
       <div><video #video id="video" width="640" height="480" autoplay></video></div>
       <div><button id="snap" (click)="capture()">Snap Photo</button></div>
@@ -11,7 +15,27 @@
       </ul>
     </div>
   </mat-tab>
-  <mat-tab label="Console">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>settings</mat-icon>
+      Settings
+    </ng-template>
+    <div>
+      <mat-form-field>
+        <mat-label>Select an option</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let d of devices" value="{{d.id}}">{{d.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    Here coming...
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>article</mat-icon>
+      Console
+    </ng-template>
     <div id="console">
     </div>
   </mat-tab>
